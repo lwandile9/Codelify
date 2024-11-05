@@ -5,9 +5,15 @@
   font-style: normal;
   line-height: 1.5;
  
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242222;
+  
+    --background-color: #000123;
+    --secondary-color: #ff0f7b;
+    --primary-color: #ffffff;
+
+    --padding-size: 1rem;
+    --font-size: 16px;
+
+
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -17,16 +23,23 @@
 
 
 
+
+
+
+
 .roboto-thin {
   font-family: "Roboto", serif;
   font-weight: 100;
   font-style: normal;
+
 }
 
 .roboto-light {
+
   font-family: "Roboto", serif;
   font-weight: 300;
   font-style: normal;
+
 }
 
 .roboto-regular {
