@@ -58,7 +58,7 @@ We used Heroku for back-end deployment
 
 # Folder structure for this project 
 ````
-code-heads-portfolio-blog/
+code-heads/
 ├── client/                    # Front-end application
 │   ├── public/                # Public assets (HTML, images)
 │   │   ├── index.html         # Main HTML file
