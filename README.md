@@ -54,4 +54,38 @@ We used Heroku for back-end deployment
 - Lwandile Toto
 - Gcina NGxowa
 - Anathi Nkohla
-- Njabulo Nxumalo 
+- Njabulo Nxumalo
+
+# Folder structure for this project 
+````
+code-heads-portfolio-blog/
+├── client/                    # Front-end application
+│   ├── public/                # Public assets (HTML, images)
+│   │   ├── index.html         # Main HTML file
+│   │   └── ...                # Additional public assets
+│   ├── src/                   # React source files
+│   │   ├── components/        # Reusable components (Navbar, Footer, etc.)
+│   │   ├── pages/             # Pages (Home, Portfolio, Blog, Admin)
+│   │   ├── App.js             # Main app file
+│   │   └── index.js           # Entry point for React app
+│   └── package.json           # Front-end dependencies and scripts
+├── server/                    # Back-end application
+│   ├── config/                # Configuration files (e.g., database connection)
+│   │   └── db.js              # Database connection setup
+│   ├── controllers/           # Business logic for routes
+│   │   ├── blogController.js  # Handles blog post operations
+│   │   └── portfolioController.js  # Handles portfolio operations
+│   ├── models/                # Database models (Mongoose schemas)
+│   │   ├── Blog.js            # Blog schema
+│   │   └── Project.js         # Portfolio project schema
+│   ├── routes/                # Routes for the API
+│   │   ├── blogRoutes.js      # Blog routes
+│   │   └── portfolioRoutes.js # Portfolio routes
+│   ├── middleware/            # Custom middleware (e.g., authentication)
+│   ├── server.js              # Main server file
+│   └── package.json           # Back-end dependencies and scripts
+├── .env                       # Environment variables (not included in Git)
+├── .gitignore                 # Ignoring unnecessary files (node_modules, .env, etc.)
+├── README.md                  # Project documentation
+└── package.json               # Optional root-level package.json if using single start script
+````
