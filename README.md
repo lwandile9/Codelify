@@ -1,11 +1,11 @@
-## Code Heads Company Portfolio & Blog Website
+# Code Heads Company Portfolio & Blog Website
 
 Welcome to the Code Heads Company Portfolio & Blog Website repository! This project showcases Code Heads' work and provides a blog for insights and tutorials, establishing a professional online presence.
 
-# Project Overview
+## Project Overview
 This website highlights Code Heads' projects and shares tech knowledge through a blog, combining a portfolio with informative posts for clients and tech enthusiasts.
 
-# Key Features
+## Key Features
 
 Portfolio Showcase: Displays projects with descriptions, images, and links.
 Blog Section: Allows creation and editing of blog posts.
@@ -23,7 +23,7 @@ Deployment
 GitHub Pages or Netlify: Hosts the site for public access.
 Getting Started
 
-# To run this project locally:
+## To run this project locally:
 
 ````
 Clone the Repository: git clone https://github.comlwandile9/code-heads/ cd code-heads
@@ -31,14 +31,14 @@ Clone the Repository: git clone https://github.comlwandile9/code-heads/ cd code-
 Install Dependencies: npm install cd client npm install cd ..
 ````
 
-# Set Up Environment Variables:
+## Set Up Environment Variables:
 
 ````
 Create a .env file in the root directory: MONGODB_URI=your_mongodb_uri PORT=5000
 Run the Server: npm run dev
 ````
 
-# Usage
+## Usage
 
 Portfolio Section: View and explore projects.
 Blog Section: View blogs.
