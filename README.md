@@ -93,13 +93,14 @@ code-heads/
 
 ## Gettting started :
 
-git clone lwandile9/code-heads
+1. git clone  ```` https://github.com/lwandile9/code-heads.git ````
 
-cd code-heads
+2. cd code-heads
 
-npm install -g vite
+3. npm install -g vite  ( install globally ) or  npm install vite --save-dev  ( install locally)
 
-npm run dev   // to start the server
+
+3. npm run dev   // to start the server
 
 if node modules are  not present  run this command  ( npm install
 )
