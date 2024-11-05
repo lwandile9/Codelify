@@ -89,3 +89,17 @@ code-heads/
 ├── README.md                  # Project documentation
 └── package.json               # Optional root-level package.json if using single start script
 ````
+
+
+## Gettting started :
+
+git clone lwandile9/code-heads
+
+cd code-heads
+
+npm install -g vite
+
+npm run dev   // to start the server
+
+if node modules are  not present  run this command  ( npm install
+)
