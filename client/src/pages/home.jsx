@@ -1,4 +1,5 @@
 
+import Footer  from "../components/footer";
 const Home  = ()=>{
 
 
@@ -6,7 +7,7 @@ const Home  = ()=>{
   
   
   <p>this home page</p>
-  
+  <Footer/>
   </>
 
 
