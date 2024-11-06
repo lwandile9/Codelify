@@ -9,12 +9,12 @@ import Services from './pages/services';
 import Blog from './pages/blog';
 import Admin from './pages/admin';
 import PageNotFound from './pages/PageNotFound';
-import Nav from './components/nav';
+import NavBar from './components/nav';
 
 function App() {
   return (
     <>
-      <Nav /> 
+      <NavBar /> 
       
       <Routes>
         <Route path='/' element={<Home />} />

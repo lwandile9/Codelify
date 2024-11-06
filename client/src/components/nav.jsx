@@ -1,16 +1,49 @@
-import { Link } from "react-router-dom"; // Removed unused Outlet import
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
-const Nav = () => {
+
+const Navbar = () => {
+  const [isNavCollapsed, setIsNavCollapsed] = useState(true);
+
+  const handleNavCollapse = () => {
+    setIsNavCollapsed(!isNavCollapsed);
+  };
+
   return (
-    <nav className="main-nav">
-      <ul className="nav-list"> 
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/services">Services</Link></li>
-        <li><Link to="/blog">Blog</Link></li> 
-        <li><Link to="/admin">Admin</Link></li>
-      </ul>
+    <nav className="navbar main-nav">
+      <a className="navbar-brand" href="#">Navbar</a>
+
+      {/* Toggler for mobile view */}
+      <button
+        className="navbar-toggler"
+        type="button"
+        onClick={handleNavCollapse}
+        aria-controls="navbarNav"
+        aria-expanded={!isNavCollapsed}
+        aria-label="Toggle navigation"
+      >
+        <span className="navbar-toggler-icon"></span>
+      </button>
+
+      {/* Collapsible menu */}
+      <div className={`navbar-collapse ${isNavCollapsed ? 'collapse' : ''}`} id="navbarNav">
+        <ul className="navbar-nav nav-list">
+          <li className="nav-item">
+            <Link to="/" className="nav-link">Home</Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/services" className="nav-link">Services</Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/blog" className="nav-link">Blog</Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/admin" className="nav-link">Admin</Link>
+          </li>
+        </ul>
+      </div>
     </nav>
   );
 };
 
-export default Nav;
+export default Navbar;
