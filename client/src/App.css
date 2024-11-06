@@ -29,12 +29,13 @@ this is how to use them
 
 
  /* Navbar Styles */
+
+
 .navbar {
     display: flex;
     align-items: center;
     padding: 0.5rem 1rem;
-    background-color: var(--background-colo);
-    border-bottom: 1px solid #e0e0e0;
+    border-bottom: 1px solid var(--primary-color);
   }
   
   .navbar-brand {

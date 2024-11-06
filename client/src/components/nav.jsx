@@ -10,7 +10,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="navbar main-nav">
+    <nav className="navbar main-nav bg-color">
       <a className="navbar-brand" href="#">Navbar</a>
 
       {/* Toggler for mobile view */}
