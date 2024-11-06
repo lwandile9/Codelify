@@ -24,6 +24,17 @@
 
 
 
+.bg-color{
+
+ background-color: var(--background-color);
+ color: var(--primary-color);
+   
+}
+
+.text-secondary-color{
+
+    color: var(--secondary-color) ;
+}
 
 
 
