@@ -1,0 +1,115 @@
+/* Base navbar styles */
+.main-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background-color: #343a40;
+  border-bottom: 1px solid var(--secondary-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 10;
+  transition: background-color 0.3s ease; /* Smooth transition for background color */
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  color: var(--secondary-color);
+  text-decoration: none;
+  transition: color 0.15s ease; /* Smooth transition for color */
+}
+
+.navbar-toggler {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: whitesmoke;
+  cursor: pointer;
+  transition: transform 0.15s ease; /* Smooth transition for toggler icon */
+}
+
+.navbar-toggler:hover {
+  transform: rotate(90deg); /* Rotate on hover */
+}
+
+/* Navbar list */
+.nav-list {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item {
+  margin-left: 1rem;
+}
+
+.nav-link {
+  color: whitesmoke;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  transition: color 0.15s ease, transform 0.3s ease; /* Smooth transition for color and scale */
+}
+
+.nav-link:hover {
+  color: var(--secondary-color);
+  transform: scale(1.05); /* Slightly scale up on hover */
+}
+
+.nav-item.active .nav-link {
+  color: var(--secondary-color);
+  font-weight: bold;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .navbar-toggler {
+    display: block;
+  }
+
+  .navbar-collapse {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background-color: #343a40;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    border-top: 1px solid #e7e7e7;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 9;
+    opacity: 0;
+    transform: scaleY(0); /* Collapsed state with animation */
+    transform-origin: top;
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth collapse/expand */
+    padding: 0.5rem 1rem; /* Matches navbar padding */
+  }
+
+  .navbar-collapse.show {
+    display: flex;
+    opacity: 1;
+    transform: scaleY(1); /* Expanded state */
+    width: 100%; /* Ensures width stays within navbar */
+    box-sizing: border-box;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    align-items: flex-start; /* Align items to the start to match the navbar width */
+    width: 100%;
+    padding: 0;
+  }
+
+  .nav-item {
+    width: 100%;
+    margin: 0.5rem 0; /* Space items vertically */
+  }
+
+  .nav-item a {
+    padding: 0.75rem 1rem;
+    width: 100%;
+    display: block;
+  }
+}
