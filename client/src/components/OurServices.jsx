@@ -85,7 +85,7 @@ const OurServices = () => {
     {
       Icon: FaLaptopCode,
       title: 'Custom Software Development',
-      description: 'We offer tailored software solutions to meet your unique business requirements.',
+      description: 'We offer tailored software solutions to meet your business needs.',
     },
     {
       Icon: FaCode,
@@ -106,15 +106,15 @@ const OurServices = () => {
 
   const testimonials = [
     {
-      name: 'John Doe',
+      name: 'Spin  bottle',
       feedback: 'This team transformed our online presence. They are true experts in the digital space.',
     },
     {
-      name: 'Jane Smith',
+      name: 'Lwazi Bob',
       feedback: 'Their custom software solutions have greatly improved our business efficiency. Highly recommended!',
     },
     {
-      name: 'Michael Brown',
+      name: 'Mike dwayne',
       feedback: 'A professional and dedicated team that delivered exactly what we needed for our project.',
     },
   ];

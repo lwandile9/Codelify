@@ -9,33 +9,34 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   position: relative;
   z-index: 10;
-  transition: background-color 0.3s ease; /* Smooth transition for background color */
+  transition: background-color 0.3s ease; 
 }
 
 .navbar-brand {
-  font-size: 1.5rem;
+  font-size: 2.6rem;
   color: var(--secondary-color);
   text-decoration: none;
-  transition: color 0.15s ease; /* Smooth transition for color */
+  transition: color 0.15s ease; 
 }
 
 .navbar-toggler {
   display: none;
   background: none;
   border: none;
-  font-size: 2rem;
+  font-size: 2.5rem;
   color: whitesmoke;
   cursor: pointer;
-  transition: transform 0.15s ease; /* Smooth transition for toggler icon */
+  transition: transform 0.15s ease;
 }
 
 .navbar-toggler:hover {
-  transform: rotate(90deg); /* Rotate on hover */
+  transform: rotate(90deg); 
 }
 
 /* Navbar list */
 .nav-list {
   display: flex;
+   justify-content: end;
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -47,14 +48,15 @@
 
 .nav-link {
   color: whitesmoke;
+  font-size: 1.5rem;
   text-decoration: none;
   padding: 0.5rem 1rem;
-  transition: color 0.15s ease, transform 0.3s ease; /* Smooth transition for color and scale */
+  transition: color 0.15s ease, transform 0.3s ease;
 }
 
 .nav-link:hover {
   color: var(--secondary-color);
-  transform: scale(1.05); /* Slightly scale up on hover */
+  transform: scale(1.05);
 }
 
 .nav-item.active .nav-link {
@@ -81,30 +83,29 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     z-index: 9;
     opacity: 0;
-    transform: scaleY(0); /* Collapsed state with animation */
+    transform: scaleY(0); 
     transform-origin: top;
-    transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth collapse/expand */
-    padding: 0.5rem 1rem; /* Matches navbar padding */
-  }
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    padding: 0.5rem 1rem; 
 
   .navbar-collapse.show {
     display: flex;
     opacity: 1;
-    transform: scaleY(1); /* Expanded state */
-    width: 100%; /* Ensures width stays within navbar */
+    transform: scaleY(1); 
+    width: 100%; 
     box-sizing: border-box;
   }
 
   .nav-list {
     flex-direction: column;
-    align-items: flex-start; /* Align items to the start to match the navbar width */
+    align-items: flex-start; 
     width: 100%;
     padding: 0;
   }
 
   .nav-item {
     width: 100%;
-    margin: 0.5rem 0; /* Space items vertically */
+    margin: 0.5rem 0; 
   }
 
   .nav-item a {
@@ -112,4 +113,5 @@
     width: 100%;
     display: block;
   }
+}
 }

@@ -27,7 +27,7 @@ const Navbar = () => {
 
       {/* Collapsible menu */}
       <div className={`navbar-collapse container ${isNavCollapsed ? '' : 'show'}`} id="navbarNav">
-        <ul className="navbar-nav nav-list roboto-bold">
+        <ul className="navbar-nav nav-list roboto-black">
           <li className="nav-item">
             <Link to="/" className="nav-link">Home</Link>
           </li>
