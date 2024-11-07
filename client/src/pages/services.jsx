@@ -1,6 +1,5 @@
 
-
-
+import OurServiceCard from '../components/OurServices'
 const Services = ()=>{
 
    
@@ -8,7 +7,7 @@ const Services = ()=>{
   return(
 
 
-      <p> This is services page</p>
+      <OurServiceCard/>
   )
 }
 

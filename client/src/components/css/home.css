@@ -1,0 +1,10 @@
+.dark-bg{
+ background-color: '#1b1b1a'  
+}
+.text-title {
+    color: #ff0f7b; /* Pink color for headings */
+    font-weight: bold;
+    font-size: 2.5em;
+    display: block;
+    margin-bottom: 10px; /* Space between title and content */
+  }
