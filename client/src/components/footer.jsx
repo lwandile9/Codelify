@@ -15,14 +15,7 @@ const Footer = () => {
             <a href="#" className="footer-logo">CODLIFY</a>
           </div>
 
-          {/* Footer Navigation Links */}
-          <div className="footer-nav">
-            <ul className="footer-nav-list">
-              <li><a href="/privacy-policy" className="footer-link">Privacy Policy</a></li>
-              <li><a href="/terms" className="footer-link">Terms of Service</a></li>
-              <li><a href="/contact" className="footer-link">Contact</a></li>
-            </ul>
-          </div>
+      
 
           {/* Footer Social Links */}
           <div className="footer-social">
