@@ -1,19 +1,16 @@
+import Footer from "../components/footer";
+import Hero from "../components/hero"; 
 
+const Home = () => {
+  return (
+    <>
+      <div className="Container dark-bg">
+        <Hero />
+        <p>this home page</p>
+        <Footer />
+      </div>
+    </>
+  );
+};
 
-import Hero from '../components/Hero';
-import '../components/css/home.css';
-const Home  = ()=>{
-
-
-  return <>
-  
-  <div className='Container dark-bg'>
-      <Hero/>
-  
-  </div>
-  </>
-
-
-}
-
-export  default Home;
+export default Home;
