@@ -7,7 +7,7 @@
   background: linear-gradient(135deg, #1e2a38, #2d3748);
   color: #fff;
   text-align: center;
-  overflow: hidden; /* Hide elements as they roll out */
+  overflow: hidden; 
 }
 
 .hero-content {
