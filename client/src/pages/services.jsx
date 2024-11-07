@@ -1,5 +1,6 @@
 
-import OurServiceCard from '../components/OurServices'
+import OurServiceCard from '../components/OurServices';
+import Footer from '../components/footer'
 const Services = ()=>{
 
    
@@ -7,7 +8,11 @@ const Services = ()=>{
   return(
 
 
-      <OurServiceCard/>
+     <>
+   <OurServiceCard/>
+    <Footer/> 
+     </>
+   
   )
 }
 
