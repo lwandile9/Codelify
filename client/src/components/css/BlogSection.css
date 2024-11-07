@@ -18,6 +18,7 @@
 
 .blog-card {
   padding: 20px;
+  border-top: 2px  solid var(--secondary-color);
   background-color: #1a1a2e;
   color: #fff;
   border-radius: 8px;
