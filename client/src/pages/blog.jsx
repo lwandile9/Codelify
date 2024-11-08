@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
+import Footer from '../components/footer'
+
 const Blog = () => {
   // State to store blog posts
   const [posts, setPosts] = useState([]);
@@ -47,6 +49,7 @@ const Blog = () => {
   }
 
   return (
+    <>
     <div>
       <h1>Blog Posts</h1>
       <ul>
@@ -63,6 +66,11 @@ const Blog = () => {
         )}
       </ul>
     </div>
+
+    <Footer/>
+    </>
+
+    
   );
 }
 
