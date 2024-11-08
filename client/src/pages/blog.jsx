@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
+import Footer from '../components/footer'
+
 const Blog = () => {
   // State to store blog posts
   const [posts, setPosts] = useState([]);
@@ -39,7 +41,7 @@ const Blog = () => {
 
   // Render loading, error, or the list of posts
   if (loading) {
-    return  <div class="loader"></div>;
+    return  <div className="loader"></div>;
   }
 
   if (error) {
@@ -47,6 +49,7 @@ const Blog = () => {
   }
 
   return (
+    <>
     <div>
       <h1>Blog Posts</h1>
       <ul>
@@ -63,6 +66,11 @@ const Blog = () => {
         )}
       </ul>
     </div>
+
+    <Footer/>
+    </>
+
+    
   );
 }
 
