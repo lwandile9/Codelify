@@ -39,7 +39,7 @@ const Blog = () => {
 
   // Render loading, error, or the list of posts
   if (loading) {
-    return  <div class="loader"></div>;
+    return  <div className="loader"></div>;
   }
 
   if (error) {
