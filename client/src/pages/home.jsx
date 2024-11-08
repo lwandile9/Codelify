@@ -1,5 +1,4 @@
 import Footer from '../components/footer';
-import Hero from "../components/HeroSection"; 
 import React from 'react';
 import HeroSection from '../components/HeroSection';
 import ProjectsSection from '../components/ProjectsSection';
