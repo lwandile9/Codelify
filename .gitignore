@@ -1,0 +1,53 @@
+# Node.js dependencies
+/node_modules/
+
+# Build output
+/build/
+/dist/
+/*.log
+
+# Firebase Admin SDK credentials (keep it private)
+*.json
+
+# Environment files
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# npm logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# VS Code settings
+.vscode/
+
+# Mac OS specific
+.DS_Store
+
+# Windows specific
+Thumbs.db
+
+# Log files
+*.log
+
+# Coverage directory (if using a testing tool like Jest)
+coverage/
+
+# Temporary files created by IDEs
+.idea/
+
+# Optional JetBrains IDE settings
+*.iml
+
+# React Native (if using React Native)
+android/
+ios/
+
+# Next.js cache (if using Next.js)
+.next/
+
+# Yarn lock file (if you're using yarn instead of npm)
+yarn.lock
