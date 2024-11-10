@@ -64,31 +64,39 @@ code-heads/
 │   │   ├── index.html         # Main HTML file
 │   │   └── ...                # Additional public assets
 │   ├── src/                   # React source files
-│   │   ├── components/        # Reusable components (Navbar, Footer, etc.)
-│   │   ├── pages/             # Pages (Home, Portfolio, Blog, Admin)
+│   │   ├── components/        # Reusable components (Navbar, Footer, etc)
+│   │   ├── pages/             # Pages (Home, services, Blog, Admin)
 │   │   ├── App.js             # Main app file
 │   │   └── index.js           # Entry point for React app
 │   └── package.json           # Front-end dependencies and scripts
 ├── server/                    # Back-end application
-│   ├── config/                # Configuration files (e.g., database connection)
-│   │   └── db.js              # Database connection setup
-│   ├── controllers/           # Business logic for routes
-│   │   ├── blogController.js  # Handles blog post operations
-│   │   └── portfolioController.js  # Handles portfolio operations
-│   ├── models/                # Database models (Mongoose schemas)
-│   │   ├── Blog.js            # Blog schema
-│   │   └── Project.js         # Portfolio project schema
-│   ├── routes/                # Routes for the API
-│   │   ├── blogRoutes.js      # Blog routes
-│   │   └── portfolioRoutes.js # Portfolio routes
-│   ├── middleware/            # Custom middleware (e.g., authentication)
-│   ├── server.js              # Main server file
-│   └── package.json           # Back-end dependencies and scripts
-├── .env                       # Environment variables (not included in Git)
-├── .gitignore                 # Ignoring unnecessary files (node_modules, .env, etc.)
-├── README.md                  # Project documentation
-└── package.json               # Optional root-level package.json if using single start script
+│         
+│  
+│   ├─  Auth.js               #  authentication
+│   ├── server.js
+    ├── Blog.js               # Main server file
+│   └── Utlis.js              # All utility function including password reset
+├── .env                     
+├── .gitignore               
+├── README.md                 
+└── package.json              
 ````
+## Explanation the node.js sever  ( the Key Features) :
+User Authentication (auth.js):
+
+Signup: The user provides an email and password, which is hashed using bcrypt and stored in Firebase Firestore.
+Login: The email and password are compared against the stored values. If valid, a JWT is issued, and a session is created.
+Password Reset: A Firebase authentication function (generatePasswordResetLink) is used to send a password reset email to the user.
+Blog Post CRUD Operations (blog.js):
+
+Create: Adds a new blog post to Firestore.
+Read: Retrieves all blog posts from Firestore.
+Update: Updates an existing blog post in Firestore based on the provided id.
+Delete: Deletes a blog post by its id.
+Search: Allows searching blog posts by title or ID.
+Session Management:
+
+User sessions are handled using express-session, storing session data like the logged-in user's email.
 
 
 ## Gettting started :
