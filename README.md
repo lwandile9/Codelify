@@ -55,6 +55,7 @@ We used Heroku for back-end deployment
 - Gcina NGxowa
 - Anathi Nkohla
 - Njabulo Nxumalo
+- Milani kukuma
 
 # Folder structure for this project 
 ````
