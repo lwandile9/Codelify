@@ -52,7 +52,7 @@ We used Heroku for back-end deployment
 ## Developers 
 
 - Lwandile Toto
-- Gcina NGxowa
+- Gcina Ngxowa
 - Anathi Nkohla
 - Njabulo Nxumalo
 - Milani kukuma
