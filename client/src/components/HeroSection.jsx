@@ -3,6 +3,9 @@ import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { FaCode, FaMobileAlt, FaCloud } from 'react-icons/fa'; // Importing icons
 import './css/hero.css';
+import { Link } from 'react-router-dom';
+
+
 
 function HeroSection() {
   const aboutRef = useRef();
@@ -88,7 +91,10 @@ function HeroSection() {
         </div>
         <p ref={ctaRef} className="hero-cta">Ready to transform your business? Let's start today!</p>
       </div>
-      <button className="cta-button">Read more about us</button>
+      <Link to="/about" className="cta-button">
+        Read More About Us
+      </Link>
+
       <div className="hero-icons">
         <FaCode className="hero-icon" title="Software Development" />
         <FaMobileAlt className="hero-icon" title="Mobile Development" />
