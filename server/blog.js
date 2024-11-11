@@ -130,4 +130,3 @@ module.exports = (db) => {
 
 	return router;
 };
-s;
