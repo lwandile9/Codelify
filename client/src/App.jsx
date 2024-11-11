@@ -11,13 +11,16 @@ import Contact from './pages/contact';
 import Admin from './pages/admin';
 import PageNotFound from './pages/PageNotFound';
 import NavBar from './components/nav';
+import About from './components/about';
 
 function App() {
   return (
     <>
+     
       <NavBar /> 
       
       <Routes>
+      <Route path='/about' element={<About />} />
         <Route path='/' element={<Home />} />
         <Route path='/services' element={<Services />} />
         <Route path='/blog' element={<Blog />} />
