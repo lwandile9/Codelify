@@ -1,8 +1,8 @@
 
 .form-container {
     background-color: #fff;
- align-items: center;
-margin: auto;
+    margin: auto;
+    margin-top: 3%;
     border-radius: 8px;
     width: 90%;
     max-width: 500px;

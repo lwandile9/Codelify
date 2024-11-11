@@ -1,12 +1,15 @@
 import ContactForm from '../components/contactForm';
+import Footer from '../components/footer';
 
 
 
 const Contact = ()=>{
 
-    return <  ContactForm/>
+    return <>
+    <ContactForm/>
+    <Footer/>
+    </>
     
-  
 }
 
 

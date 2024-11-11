@@ -1,7 +1,7 @@
 // BlogSection.js
 import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
-import './/css/BlogSection.css';
+import './css/BlogSection.css';
 
 function BlogSection() {
   const blogRef = useRef([]);
