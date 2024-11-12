@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import AdminPanel from "../components/AdminPanel";
-import { useNavigate } from 'react-router-dom'; // For navigation in React Router v6+
-import axios from 'axios'; // For making API calls
-
+import { useNavigate } from 'react-router-dom'; 
+import '../components/css/adminPanel.css'
+  
 const AdminPage = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false); // State to track authentication status
   const navigate = useNavigate(); // useNavigate hook for redirection
@@ -11,18 +11,24 @@ const AdminPage = () => {
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        // End point for user Auth
-        const response = await axios.get('http://localhost:5000/check-session', { withCredentials: true });
+        // Using fetch to check if the user is authenticated
+        const response = await fetch('http://localhost:5000/check-session', {
+          method: 'GET',
+          credentials: 'include', // This ensures cookies are sent with the request
+        });
 
-        if (response.status === 200) {
-          setIsAuthenticated(true); 
+        if (response.ok) {
+          // If the response status is 200 OK, user is authenticated
+          const data = await response.json();
+          setIsAuthenticated(true);
         } else {
+          // If response is not OK (e.g., 401 Unauthorized), user is not authenticated
           setIsAuthenticated(false);
-          navigate('/login'); // take user to login if not auth
+          navigate('/login'); // Redirect to login if not authenticated
         }
       } catch (error) {
         setIsAuthenticated(false);
-        navigate('/login'); // Redirect to login on error 
+        navigate('/login'); // Redirect to login on error (e.g., network issues or invalid session)
       }
     };
 
@@ -30,7 +36,11 @@ const AdminPage = () => {
   }, [navigate]); // Dependency on navigate to re-run effect if needed
 
   if (!isAuthenticated) {
-    return <div>Loading...</div>; // Optional loading state while checking authentication
+    return <div class="loading-container">
+  <div class="spinner"></div>
+  <div class="loading-message">Authenticating, please wait...</div>
+</div>
+; 
   }
 
   return (

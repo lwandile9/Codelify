@@ -13,8 +13,8 @@
 
 /* Sidebar Styles */
 .sidebar {
-  width: 16%; 
-  background-color:#151522;
+  width: 16%;
+  background-color: #151522;
   color: white;
   height: 95%;
   position: fixed;
@@ -23,7 +23,7 @@
 }
 
 .sidebar.open {
-  width: 200px; 
+  width: 200px;
 }
 
 .sidebar .title {
@@ -60,7 +60,7 @@
 }
 
 .post-button:hover {
-  background-color:var(--secondary-color);
+  background-color: var(--secondary-color);
 }
 
 /* Main content area */
@@ -98,7 +98,7 @@
   .sidebar {
     width: 0;
   }
-  
+
   .sidebar.open {
     width: 200px;
   }
@@ -119,21 +119,25 @@
   justify-content: center;
   align-items: center;
 }
+
 .search-input {
   margin: 5px;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
 }
+
 .search-button {
   margin: 5px;
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 10%;
-  background-color:var(--secondary-color);;
+  background-color: var(--secondary-color);
+  ;
   color: white;
   cursor: pointer;
 }
+
 .search-button:hover {
   background-color: pink;
 }
@@ -148,6 +152,7 @@
   border-radius: 5px;
   background-color: #fff;
 }
+
 .st-form-container label,
 .st-form-container input,
 .st-form-container textarea,
@@ -155,27 +160,104 @@
   margin: 10px 0;
   width: 100%;
 }
+
 .st-form-container input,
 .st-form-container textarea {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
 }
+
 .st-form-container button {
   padding: 10px;
   border: none;
   border-radius: 5px;
-  background-color:  var(--secondary-color);
+  background-color: var(--secondary-color);
   color: white;
   cursor: pointer;
 }
+
 .st-form-container button:hover {
   background-color: pink;
 }
 
-.create-post-heading{
+.create-post-heading {
   font-size: 2rem;
   color: #6c757d;
   margin-bottom: 2rem;
-  
+
+}
+
+
+
+/* Container for the loading screen */
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  /* Full screen height */
+  background-color: rgba(0, 0, 0, 0.1);
+  /* Subtle background color */
+  position: fixed;
+  /* Ensure it stays in place */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+/* Style for the loading message */
+.loading-message {
+  font-family: 'Roboto', sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  color: #333;
+  /* Dark gray color */
+  text-align: center;
+  letter-spacing: 1px;
+  animation: pulse 1.5s infinite ease-in-out;
+  /* Pulsing effect */
+}
+
+/* Pulsing effect */
+@keyframes pulse {
+  0% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+
+  100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+}
+
+/* Optional: Style for the spinner (loading icon) */
+.spinner {
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  /* White with opacity for the outer circle */
+  border-top: 4px solid #007bff;
+  /* Blue color for the rotating part */
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1.2s linear infinite;
+  margin-bottom: 20px;
+}
+
+/* Spinning animation */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
