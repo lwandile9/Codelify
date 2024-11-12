@@ -13,7 +13,7 @@
 
 /* Sidebar Styles */
 .sidebar {
-  width: 16%; /* Narrower sidebar */
+  width: 16%; 
   background-color:#151522;
   color: white;
   height: 95%;
@@ -23,7 +23,7 @@
 }
 
 .sidebar.open {
-  width: 200px; /* Sidebar width when open */
+  width: 200px; 
 }
 
 .sidebar .title {
