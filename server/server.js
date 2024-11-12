@@ -1,59 +1,45 @@
-// Import necessary modules
-const express = require('express');
-const cors = require('cors');
+// Import required modules
+const express = require("express");
+const cors = require("cors");
+const bodyParser = require("body-parser");
+const session = require("express-session");
+const firebaseAdmin = require("firebase-admin");
 
-// Initialize the Express app
+// Firebase Admin SDK initialization
+const serviceAccount = require("./serviceAccountKey.json");
+firebaseAdmin.initializeApp({
+	credential: firebaseAdmin.credential.cert(serviceAccount),
+	databaseURL: "https://<your-database-name>.firebaseio.com",
+});
+
+// Firebase Firestore reference
+const db = firebaseAdmin.firestore();
+
+// Initialize Express app
 const app = express();
 const PORT = 3000;
 
-// Use CORS to allow frontend requests
+// Middleware setup
 app.use(cors());
+app.use(bodyParser.json());
+app.use(
+	session({
+		secret: "secretKey",
+		resave: false,
+		saveUninitialized: true,
+		cookie: { secure: false }, // Use true for HTTPS
+	})
+);
 
-// Sample blog posts data
-const blogPosts = [
-  {
-    id: 1,
-    title: "Introduction to Node.js",
-    content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-    author: "Lwandile",
-    createdAt: "2024-11-07",
-  },
-  {
-    id: 2,
-    title: "Understanding Express.js",
-    content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-    author: "Gcina",
-    createdAt: "2024-11-08",
-  },
-  {
-    id: 3,
-    title: "Understanding Express.js",
-    content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-    author: "Gcina",
-    createdAt: "2024-11-08",
-  },
-  {
-    id: 4,
-    title: "Understanding Express.js",
-    content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-    author: "Gcina",
-    createdAt: "2024-11-08",
-  },
-  {
-    id: 5,
-    title: "Understanding Express.js",
-    content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-    author: "Gcina",
-    createdAt: "2024-11-08",
-  },
-];
+// Import routes
+const authRoutes = require("./auth");
+const blogRoutes = require("./blog");
 
-// Define the `/blog` endpoint
-app.get('/blog', (req, res) => {
-  res.json(blogPosts); // Return the blogPosts array as JSON
-});
+// Use routes
+app.use("/auth", authRoutes);
+app.use("/blog", blogRoutes(db));
 
 // Start the server
 app.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}`);
+	console.log(`Server running at http://localhost:${PORT}`);
 });
