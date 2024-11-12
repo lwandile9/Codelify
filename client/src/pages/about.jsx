@@ -2,12 +2,12 @@ import About from '../components/about';
 
 
 
-const About = ()=>{
+const AboutPage = ()=>{
 
-    return <  About/>
+    return <About/>
     
   
 }
 
 
-export default About;
+export default AboutPage;

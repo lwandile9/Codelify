@@ -1,48 +1,108 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 import '../components/css/about.css';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-import gsap from 'gsap'; // Make sure to have this hook if it's custom
+gsap.registerPlugin(ScrollTrigger);
 
-export default function Boxes() {
-  const container = useRef();
-  const tl = useRef();
+export default function About() {
+  const missionRef = useRef();
+  const valuesRef = useRef([]);
+  const containerRef = useRef();
 
-  const toggleTimeline = () => {
-    tl.current.reversed(!tl.current.reversed());
-  };
+  useEffect(() => {
+    // Enhanced animation for mission section with rotation and delay
+    gsap.from(missionRef.current, {
+      opacity: 0,
+      y: 150,
+      rotation: -10,
+      duration: 1.5,
+      ease: 'power4.out',
+      delay: 0.2,
+      scrollTrigger: {
+        trigger: missionRef.current,
+        start: 'top 80%',
+        toggleActions: 'play none none reverse',
+      },
+    });
 
-  useGSAP(
-    () => {
-      const boxes = gsap.utils.toArray('.box');
-      tl.current = gsap
-        .timeline()
-        .to(boxes[0], { x: 120, rotation: 360 })
-        .to(boxes[1], { x: -120, rotation: -360 }, '<')
-        .to(boxes[2], { y: -166 })
-        .to(boxes[3], { opacity: 1, y: 20 })
-        .reverse();
-    },
-    { scope: container }
-  );
+    // Multi-step animation for value boxes with stronger stagger and scale effect
+    gsap.fromTo(
+      valuesRef.current,
+      { opacity: 0, y: 100, scale: 0.8 },
+      {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        stagger: 0.3,
+        duration: 1.2,
+        ease: 'elastic.out(1, 0.75)',
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: 'top 70%',
+          toggleActions: 'play none none reverse',
+        },
+      }
+    );
+  }, []);
 
   return (
-    <main>
-      <section className="About-description">
-        <h1>About Us</h1>
+    <main ref={containerRef}>
+      <section className="About-intro">
+        <h1>Welcome to Codlify</h1>
         <p>
-          At Codlify, we’re a team of passionate software developers, designers, and strategists dedicated to building software solutions that enable digital transformation. Founded by software enthusiasts, our goal is to help businesses unlock the potential of technology to drive growth and innovation. Through collaboration, creativity, and expertise, we aim to become a trusted partner in your journey toward a digital future.
+          We specialize in harnessing the power of technology to help businesses thrive in a digital world. Our team brings expertise and creativity to build impactful solutions.
         </p>
       </section>
 
-      <section className="boxes-container" ref={container}>
-        <h2>Our Values</h2>
-        <button onClick={toggleTimeline}>Toggle Timeline</button>
-        
-        <div className="box gradient-blue">Innovation: We push the boundaries of technology to create impactful solutions.</div>
-        <div className="box gradient-blue">Collaboration: Teamwork and shared ideas drive our success.</div>
-        <div className="box gradient-blue">Integrity: Transparency and honesty build trust with our clients and team.</div>
-        <div className="box gradient-blue">Excellence: We deliver high-quality solutions that exceed expectations.</div>
-        <div className="box gradient-blue">Customer-Centricity: We focus on understanding and meeting customer needs.</div>
+      <section className="About-mission" ref={missionRef}>
+        <h2>Our Mission</h2>
+        <p>
+          To lead the digital future by creating software solutions that drive transformation and growth. Codlify believes in innovation, quality, and dedication to help our clients achieve their potential.
+        </p>
+        <p>
+          With a commitment to excellence, we aspire to be your partner in navigating technological challenges and unlocking new opportunities.
+        </p>
+      </section>
+
+      <section className="About-values">
+        <h2>Our Core Values</h2>
+        <div className="values-container">
+          {['Innovation', 'Collaboration', 'Integrity', 'Excellence', 'Customer Focus'].map(
+            (value, index) => (
+              <div
+                key={index}
+                className="value-box"
+                ref={(el) => (valuesRef.current[index] = el)}
+              >
+                <h3>{value}</h3>
+                <p>
+                  {value === 'Innovation' &&
+                    'Pioneering new approaches for impactful solutions.'}
+                  {value === 'Collaboration' &&
+                    'Our collective success is driven by teamwork and respect.'}
+                  {value === 'Integrity' &&
+                    'Upholding transparency and honesty in every interaction.'}
+                  {value === 'Excellence' &&
+                    'Delivering quality solutions that exceed expectations.'}
+                  {value === 'Customer Focus' &&
+                    'Understanding and addressing client needs with dedication.'}
+                </p>
+              </div>
+            )
+          )}
+        </div>
+      </section>
+
+      <section className="About-cta">
+        <h2>Start Your Digital Transformation with Us</h2>
+        <p>
+          Ready to explore how Codlify can help your business adapt, grow, and succeed in today’s fast-paced digital landscape? Let’s connect and make it happen together.
+        </p>
+        <Link to="/contact">  {/* Link to the contact page */}
+          <button>Contact Us</button>
+        </Link>
       </section>
     </main>
   );
