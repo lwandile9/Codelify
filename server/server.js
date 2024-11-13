@@ -6,7 +6,7 @@ const session = require("express-session");
 const firebaseAdmin = require("firebase-admin");
 
 // Firebase Admin SDK initialization
-const serviceAccount = require("./serviceAccountKey.json");
+const serviceAccount = require("./codlify-secret-key.json");
 firebaseAdmin.initializeApp({
 	credential: firebaseAdmin.credential.cert(serviceAccount),
 	databaseURL: "https://<your-database-name>.firebaseio.com",

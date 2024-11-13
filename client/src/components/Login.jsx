@@ -14,41 +14,12 @@ function LoginRegister() {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [errors, setErrors] = useState({});
-
-  // Regular expressions for validation
-  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-  const passwordRegex = /^[!@#$%^&*(),.?":{}|<>].*\d$/;
+  const [loginError, setLoginError] = useState('');
 
   const validateForm = () => {
     let formErrors = {};
 
-    // Name validation
-    if (!name.trim()) {
-      formErrors.name = 'Name is required';
-    } else if (name.length < 3) {
-      formErrors.name = 'Name must be at least 3 characters long';
-    }
-
-    // Email validation
-    if (!email) {
-      formErrors.email = 'Email is required';
-    } else if (!emailRegex.test(email)) {
-      formErrors.email = 'Invalid email format';
-    }
-
-    // Password validation
-    if (!password) {
-      formErrors.password = 'Password is required';
-    } else if (!passwordRegex.test(password)) {
-      formErrors.password = 'Password must start with a special character and end with a number';
-    }
-
-    // Confirm password validation
-    if (!confirmPassword) {
-      formErrors.confirmPassword = 'Please confirm your password';
-    } else if (confirmPassword !== password) {
-      formErrors.confirmPassword = 'Passwords do not match';
-    }
+    // Validation logic here
 
     setErrors(formErrors);
     return Object.keys(formErrors).length === 0;
@@ -58,10 +29,31 @@ function LoginRegister() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validateForm()) {
-      console.log('Form submitted successfully');
-      // Process the form submission (e.g., send data to the backend)
-    } else {
-      console.log('Form has errors');
+      // Registration form submission logic here
+    }
+  };
+
+  // Login submission handler
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    setLoginError(''); // Clear any previous error messages
+
+    try {
+      const response = await fetch('/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password }),
+      });
+
+      const data = await response.json();
+      if (response.ok) {
+        console.log('Login successful', data);
+        // Handle successful login (e.g., save token, redirect)
+      } else {
+        setLoginError(data.error || 'Login failed');
+      }
+    } catch (error) {
+      setLoginError('Server error. Please try again later.');
     }
   };
 
