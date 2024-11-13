@@ -20,6 +20,8 @@ function BlogSection() {
     { title: 'Tech Trends 2024', snippet: 'What’s next in technology this year? huh what is this', link: '/blog/tech-trends-2024' },
   ];
 
+  
+
   return (
     <section className="blog-section">
       <h2>Latest Blog Posts</h2>
