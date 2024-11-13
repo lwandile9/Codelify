@@ -152,10 +152,12 @@ const OurServices = () => {
         <div className="form-overlay" onClick={() => setShowForm(false)}>
           <div className="form-container" onClick={(e) => e.stopPropagation()}>
             <h3>Request a Service</h3>
-            <form>
-              <input type="text" placeholder="Your Name" required />
-              <input type="email" placeholder="Your Email" required />
-              <textarea placeholder="Describe your service request" required></textarea>
+
+
+            <form action= "https://formspree.io/f/xldedaaq" method="POST">
+              <input type="text"  name="name" placeholder="Your Name" required />
+              <input type="email"  name="email" placeholder="Your Email" required />
+              <textarea  name="message" placeholder="Describe your service request" required></textarea>
               <button type="submit">Submit</button>
             </form>
           </div>
