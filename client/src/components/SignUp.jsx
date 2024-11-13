@@ -11,6 +11,7 @@ function FormValidation() {
   const [confirmpassword, setConfirmPassword] = useState('');
   const [errors, setErrors] = useState({});
   const [isLoading, setIsLoading] = useState(false);
+  const [agreeTerms, setAgreeTerms] = useState(false);
 
   // Handle form validation
   const validateFormInput = () => {
@@ -28,6 +29,9 @@ function FormValidation() {
     }
     if (password !== confirmpassword) {
       newErrors.confirmpassword = "Passwords do not match.";
+    }
+    if (!agreeTerms) {
+      newErrors.agreeTerms = "You must agree to the terms & conditions.";
     }
     return newErrors;
   };
@@ -60,11 +64,9 @@ function FormValidation() {
       const result = await response.json();
 
       if (response.ok) {
-        // Handle successful signup (e.g., redirect or show success message)
         alert("Registration successful");
         console.log(result);
       } else {
-        // Handle error response from the API
         alert(result.error || "An error occurred during registration.");
       }
     } catch (error) {
@@ -125,8 +127,13 @@ function FormValidation() {
         </div>
         <div className='remember-forgot'>
           <label>
-            <input type="checkbox" /> I agree to the terms & conditions
+            <input 
+              type="checkbox" 
+              checked={agreeTerms}
+              onChange={(e) => setAgreeTerms(e.target.checked)}
+            /> I agree to the terms & conditions
           </label>
+          {errors.agreeTerms && <span className="error">{errors.agreeTerms}</span>}
         </div>
         <button className='btnRegister' type="submit" disabled={isLoading}>
           {isLoading ? "Registering..." : "Register"}

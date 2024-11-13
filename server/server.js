@@ -9,8 +9,8 @@ const firebaseAdmin = require("firebase-admin");
 const serviceAccount = require("./codlify-secret-key.json");
 
 firebaseAdmin.initializeApp({
-  credential: firebaseAdmin.credential.cert(serviceAccount),
-  // No need for databaseURL for Firestore
+	credential: firebaseAdmin.credential.cert(serviceAccount),
+	// No need for databaseURL for Firestore
 });
 
 // Firebase Firestore reference
@@ -24,12 +24,12 @@ const PORT = 3000;
 app.use(cors());
 app.use(bodyParser.json());
 app.use(
-  session({
-    secret: "secretKey",
-    resave: false,
-    saveUninitialized: true,
-    cookie: { secure: false }, // Use true for HTTPS
-  })
+	session({
+		secret: "secretKey",
+		resave: false,
+		saveUninitialized: true,
+		cookie: { secure: false }, // Use true for HTTPS
+	})
 );
 
 // Import routes
@@ -42,5 +42,5 @@ app.use("/blog", blogRoutes(db)); // Pass the Firestore database to routes
 
 // Start the server
 app.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}`);
+	console.log(`Server running at http://localhost:${PORT}`);
 });
