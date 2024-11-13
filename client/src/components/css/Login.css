@@ -1,113 +1,187 @@
-.wrapper{
+/* Reset default margin and padding for all elements */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Style for the container that centers everything on the page */
+.FormBody {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f2f5;
+}
+
+/* Wrapper for the form box */
+.wrapper {
     position: relative;
     width: 420px;
-    height: 150px;
-    background-color:  #ffffff;
-    border-radius: 15px; 
+    background-color: #ffffff;
+    border-radius: 15px;
     display: flex;
     align-items: center;
-    transition:  .2s ease;
+    transition: height 0.2s ease;
     overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Adds a soft shadow for depth */
+    padding: 20px;
 }
 
-.wrapper.active{
-    height: 520px
+/* Adjust wrapper height when switching between login and register */
+.wrapper.active {
+    height: 580px;
 }
 
-.wrapper.form-box {
+/* Styling for each form box inside the wrapper */
+.wrapper .form-box {
     width: 100%;
-    padding: 10px;
 }
 
-.wrapper.active .form-box.login{
-    transition: none;
-   
-}
-
-.wrapper .form-box.register{
-    position: absolute;
-    translate: 400px;
-    transition: none;
-}
-
-.wrapper.active .form-box.register{
-    transition: translate .18s ease;
-    translate: x;
-}
-
-form h1{
-    font-size: 36px;
+/* Center-align form titles */
+form h1 {
+    font-size: 24px;
     text-align: center;
+    margin-bottom: 20px;
 }
-form .input-box{
+
+/* Container for input fields */
+.input-box {
     position: relative;
     width: 100%;
     height: 50px;
-    margin: 10px 0;
+    margin: 15px 0;
 }
 
-.input-box .emailIcon{
-    position: absolute;
-    margin-right: 30px;
-    right: 20px;
-    top: 50%;
-    translate: 0-82%;
-    font-size: 16px;
-}
-
-.input-box input{
-    width: 90%;
+/* Input field styling */
+.input-box input {
+    width: 100%;
     height: 100%;
-    background: transparent;
-    border: none;
+    padding: 0 50px 0 20px; /* Adds padding for icon on the right */
+    border: 2px solid #ccc;
+    border-radius: 25px;
+    font-size: 16px;
     outline: none;
-    border: 2px solid;
-    border-radius: 20px;
-    font-size: 16px;
-    padding: 20px
-}
-.input-box .icon{
-    position: absolute;
-    margin-right: 30px;
-    right: 20px;
-    top: 50%;
-    translate: 0-82%;
-    font-size: 16px;
+    color: #333;
+    background-color: #f9f9f9;
 }
 
-form .remember-forgot{
+/* Style for icons inside input fields, aligned to the right */
+.input-box .icon {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: #777;
+}
+
+/* Container for "Remember me" and "Forgot password" */
+form .remember-forgot {
     display: flex;
     justify-content: space-between;
-    font-size:14.5px ;
-    margin: -8px 1 8px;
-    margin-bottom: 8px;
+    font-size: 14.5px;
+    margin: 5px 0 15px;
 }
-.remember-forgot label input{
-   margin-right: 2px;
+
+.remember-forgot label input {
+    margin-right: 5px;
 }
-.remember-forgot a{
+
+.remember-forgot a {
     text-decoration: none;
+    color: var(--secondary-color);
 }
 
-.remember-forgot a:hover{
-    text-align: underline;
+.remember-forgot a:hover {
+    text-decoration: underline;
 }
 
-form button{
-    width: 90%;
-    height: 30px;
+/* Button styling */
+form button {
+    width: 100%;
+    height: 45px;
     border: none;
-    outline: none;
-    border-radius: 40px;
-    box-shadow: 0 0 10px;
+    border-radius: 25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     cursor: pointer;
+    font-size: 16px;
+    background-color: var(--secondary-color);
+    color: #fff;
+    transition: background-color 0.3s;
 }
-form .register-link{
+
+/* Change button color on hover */
+form button:hover {
+    background-color: var(--secondary-color);
+}
+
+/* Styling for "Don't have an account?" link */
+form .register-link {
     font-size: 14.5px;
     text-align: center;
-    margin: 20px 0 15px;
+    margin-top: 20px;
 }
 
 .register-link p a {
     font-weight: 600;
+    color: var(--secondary-color);
+    text-decoration: none;
 }
+
+/* Error message styling */
+form p {
+    font-size: 1rem;
+    color: var(--secondary-color);
+    margin-top: 5px;
+    margin-left: 5px;
+}
+/* Modal Overlay */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  /* Modal Content */
+  .modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 400px;
+    text-align: center;
+  }
+  
+  .modal-content h2 {
+    margin-bottom: 20px;
+  }
+  
+  .modal-content input {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  .modal-content button {
+    padding: 10px 20px;
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+  }
+  
+  .modal-content button:hover {
+    background-color:var(--secondary-color);
+  }
+  
