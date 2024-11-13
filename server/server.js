@@ -7,9 +7,10 @@ const firebaseAdmin = require("firebase-admin");
 
 // Firebase Admin SDK initialization
 const serviceAccount = require("./codlify-secret-key.json");
+
 firebaseAdmin.initializeApp({
-	credential: firebaseAdmin.credential.cert(serviceAccount),
-	databaseURL: "https://<your-database-name>.firebaseio.com",
+  credential: firebaseAdmin.credential.cert(serviceAccount),
+  // No need for databaseURL for Firestore
 });
 
 // Firebase Firestore reference
@@ -23,12 +24,12 @@ const PORT = 3000;
 app.use(cors());
 app.use(bodyParser.json());
 app.use(
-	session({
-		secret: "secretKey",
-		resave: false,
-		saveUninitialized: true,
-		cookie: { secure: false }, // Use true for HTTPS
-	})
+  session({
+    secret: "secretKey",
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: false }, // Use true for HTTPS
+  })
 );
 
 // Import routes
@@ -37,9 +38,9 @@ const blogRoutes = require("./blog");
 
 // Use routes
 app.use("/auth", authRoutes);
-app.use("/blog", blogRoutes(db));
+app.use("/blog", blogRoutes(db)); // Pass the Firestore database to routes
 
 // Start the server
 app.listen(PORT, () => {
-	console.log(`Server running at http://localhost:${PORT}`);
+  console.log(`Server running at http://localhost:${PORT}`);
 });

@@ -16,30 +16,52 @@ function LoginRegister() {
   const [errors, setErrors] = useState({});
   const [loginError, setLoginError] = useState('');
 
+  // Validate form inputs
   const validateForm = () => {
     let formErrors = {};
 
-    // Validation logic here
+    // Example validation
+    if (!name) formErrors.name = "Name is required";
+    if (!email) formErrors.email = "Email is required";
+    if (!password) formErrors.password = "Password is required";
+    if (password !== confirmPassword) formErrors.confirmPassword = "Passwords do not match";
 
     setErrors(formErrors);
     return Object.keys(formErrors).length === 0;
   };
 
-  // Submit handler for registration form
-  const handleSubmit = (e) => {
+  // Handle registration form submission
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (validateForm()) {
-      // Registration form submission logic here
+      try {
+        const response = await fetch('http://localhost:3000/register', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, email, password, confirmPassword }),
+        });
+
+        const data = await response.json();
+        if (response.ok) {
+          console.log('Registration successful:', data);
+          // Optionally, handle successful registration (e.g., redirect, show a message)
+        } else {
+          console.log('Registration error:', data);
+          setErrors(data.errors || { form: 'Registration failed' });
+        }
+      } catch (error) {
+        console.error('Error:', error);
+      }
     }
   };
 
-  // Login submission handler
+  // Handle login form submission
   const handleLogin = async (e) => {
     e.preventDefault();
     setLoginError(''); // Clear any previous error messages
 
     try {
-      const response = await fetch('/login', {
+      const response = await fetch('http://localhost:3000/auth/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),
@@ -47,8 +69,8 @@ function LoginRegister() {
 
       const data = await response.json();
       if (response.ok) {
-        console.log('Login successful', data);
-        // Handle successful login (e.g., save token, redirect)
+        console.log('Login successful:', data);
+        // Optionally, handle successful login (e.g., save token, redirect)
       } else {
         setLoginError(data.error || 'Login failed');
       }
@@ -78,16 +100,29 @@ function LoginRegister() {
         {/* Conditionally render login or register form based on showRegister */}
         {!showRegister ? (
           <div className="form-box login">
-            <form>
+            <form onSubmit={handleLogin}>
               <h1>Login</h1>
               <div className="input-box">
-                <input type="text" placeholder="Username" required />
-                <FaUserAlt className="icon" />
+                <input
+                  type="text"
+                  placeholder="Email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
+                <MdEmail className="icon" />
               </div>
               <div className="input-box">
-                <input type="password" placeholder="Password" required />
+                <input
+                  type="password"
+                  placeholder="Password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                />
                 <FaLock className="icon" />
               </div>
+              {loginError && <p style={{ color: 'red' }}>{loginError}</p>}
               <div className="remember-forgot">
                 <label><input type="checkbox" /> Remember me</label>
                 <a href="#" onClick={openModal}>Forgot password?</a>
@@ -105,7 +140,7 @@ function LoginRegister() {
               <div className="input-box">
                 <input
                   type="text"
-                  placeholder="Username"
+                  placeholder="Name"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   required
