@@ -39,7 +39,7 @@ function FormValidation(){
         <label><input type = "checkbox" />I agree to the terms & conditions</label>
         
     </div>
-    <button type = "SUBMIT">Register</button>
+    <button className='btnRegister'  type = "SUBMIT">Register</button>
     <div className="register-link">
         <p>Already have an account? <a href="#" onClick= {LoginRegister}>Login</a> </p>
     </div>

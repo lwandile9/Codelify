@@ -70,6 +70,7 @@ function LoginRegister() {
   };
 
   return (
+    <div className='FormBody'>
     <div className="wrapper">
       {/* Conditionally render login or register form based on showRegister */}
       {!showRegister ? (
@@ -88,7 +89,7 @@ function LoginRegister() {
               <label><input type="checkbox" /> Remember me</label>
               <a href="#">Forgot password?</a>
             </div>
-            <button type="submit">Login</button>
+            <button className='btn' type="submit">Login</button>
             <div className="register-link">
               <p>Don't have an account? <a href="#" onClick={toggleForm}>Register</a></p>
             </div>
@@ -149,6 +150,7 @@ function LoginRegister() {
           </form>
         </div>
       )}
+    </div>
     </div>
   );
 }
