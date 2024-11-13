@@ -56,7 +56,7 @@ export default function About() {
         </p>
       </section>
 
-      <section className="About-mission" ref={missionRef}>
+      <section className="About-mission">
         <h2>Our Mission</h2>
         <p>
           To lead the digital future by creating software solutions that drive transformation and growth. Codlify believes in innovation, quality, and dedication to help our clients achieve their potential.
@@ -64,12 +64,15 @@ export default function About() {
         <p>
           With a commitment to excellence, we aspire to be your partner in navigating technological challenges and unlocking new opportunities.
         </p>
+        <h2>Our Vission</h2>
+        <p>Vision
+        To become the foremost global partner in digital transformation, recognized for empowering businesses to thrive in an evolving digital landscape. Codlify envisions a world where businesses of all sizes can seamlessly leverage emerging technologies, drive impactful change, and unlock new avenues for growth. Through a commitment to innovation, sustainability, and excellence, Codlify strives to shape the future of technology, setting industry standards for quality, integrity, and client success.</p>
       </section>
 
       <section className="About-values">
         <h2>Our Core Values</h2>
         <div className="values-container">
-          {['Innovation', 'Collaboration', 'Integrity', 'Excellence', 'Customer Focus'].map(
+          {['Innovation', 'Collaboration', 'Integrity', 'Excellence', 'Customer Focus', 'Innovation in Diversity', 'Client Success', 'Resilience'].map(
             (value, index) => (
               <div
                 key={index}
@@ -88,6 +91,12 @@ export default function About() {
                     'Delivering quality solutions that exceed expectations.'}
                   {value === 'Customer Focus' &&
                     'Understanding and addressing client needs with dedication.'}
+                    {value === 'Innovation in Diversity' &&
+                    'Valuing diverse perspectives and backgrounds as a foundation for innovative thinking and creativity in problem-solving.'}
+                    {value === 'Client Success' &&
+                    'Prioritizing measurable outcomes and value for our clients, focusing on solutions that drive real impact and long-term success.'}
+                    {value === 'Resilience' &&
+                    'Demonstrating strength and adaptability in the face of challenges, turning obstacles into opportunities for growth and learning.'}
                 </p>
               </div>
             )

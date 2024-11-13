@@ -15,10 +15,12 @@ function BlogSection() {
   }, []);
 
   const blogs = [
-    { title: 'Digital Transformation 101', snippet: 'Learn the essentials of going digital.', link: '/blog/digital-transformation-101' },
+    { title: 'Digital Transformation 101', snippet: 'Learn the essentials of going digital. after going back to  zambia', link: '/blog/digital-transformation-101' },
     { title: 'Why Custom Software?', snippet: 'Explore the benefits of tailored software.', link: '/blog/why-custom-software' },
-    { title: 'Tech Trends 2024', snippet: 'What’s next in technology this year?', link: '/blog/tech-trends-2024' },
+    { title: 'Tech Trends 2024', snippet: 'What’s next in technology this year? huh what is this', link: '/blog/tech-trends-2024' },
   ];
+
+  
 
   return (
     <section className="blog-section">
@@ -28,7 +30,8 @@ function BlogSection() {
           <div className="blog-card" ref={(el) => (blogRef.current[index] = el)} key={index}>
             <h3>{blog.title}</h3>
             <p>{blog.snippet}</p>
-            <a href={blog.link} className="read-more-button">Read More</a>
+            <div className='btn-read-more-container'> <a href={blog.link} className="btn-read-more">Read More</a></div>
+           
           </div>
         ))}
       </div>

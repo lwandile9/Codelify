@@ -5,7 +5,7 @@ const jwt = require("jsonwebtoken");
 const router = express.Router();
 
 // Firebase Firestore and Authentication references
-const usersRef = firebaseAdmin.firestore().collection("users");
+const usersRef = firebaseAdmin.firestore().collection("admins");
 const auth = firebaseAdmin.auth();
 
 // SignUp (Create User)

@@ -20,13 +20,12 @@ const AdminPanel = () => {
     <form className="search-form">
         <input type="text" placeholder="search.." className="search-input" >
         </input>
-
         <button className="search-button">Search</button>
     </form>
-
 </div>
         <p>Manage your blog posts and view statistics here.</p>
       </div>
+      <p></p>
     </div>
   );
 };
