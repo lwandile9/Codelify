@@ -139,7 +139,7 @@
   background-color: var(--secondary-color);
 }
 
-/* Hide overflow when form is open */
+
 body.form-open {
   overflow: hidden;
 }

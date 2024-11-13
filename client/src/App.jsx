@@ -8,10 +8,11 @@ import Home from './pages/home';
 import Services from './pages/services';
 import Blog from './pages/blog';
 import Contact from './pages/contact';
-import AdminPage from './pages/AdminPage';
+import AdminPage from './pages/AdminPage'
 import PageNotFound from './pages/PageNotFound';
 import NavBar from './components/nav';
-import About from './components/about';
+import AboutPage from './pages/about';
+import Login  from './components/Login';
 
 function App() {
   return (
@@ -20,12 +21,13 @@ function App() {
       <NavBar /> 
       
       <Routes>
-      <Route path='/about' element={<About />} />
+      <Route path='/about' element={<AboutPage />} />
         <Route path='/' element={<Home />} />
         <Route path='/services' element={<Services />} />
-        <Route path='/blog' element={<Blog />} />
+        <Route path='/blog' element={<Blog />}/>
         <Route path='/contact' element={<Contact />} />
         <Route path='/admin' element={<AdminPage />} />
+        <Route path='/login' element={<Login />} />
         <Route path='*' element={<PageNotFound />} />
       </Routes>
     </>

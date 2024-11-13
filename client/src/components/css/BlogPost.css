@@ -6,7 +6,7 @@
 }
 
 /* Grid styling */
-.blog-grid {
+.blog-Post-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 20px;
@@ -14,7 +14,7 @@
 }
 
 @media (min-width: 768px) {
-  .blog-grid {
+  .blog-Post-grid {
     grid-template-columns: 1fr 1fr; /* Two columns on larger screens */
   }
 }
