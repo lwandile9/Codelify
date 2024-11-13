@@ -1,41 +1,52 @@
 import React, { useEffect, useState } from 'react';
 import AdminPanel from "../components/AdminPanel";
-import { useNavigate } from 'react-router-dom'; // For navigation in React Router v6+
-import axios from 'axios'; // For making API calls
+import { useNavigate } from 'react-router-dom';
 
 const AdminPage = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false); // State to track authentication status
-  const navigate = useNavigate(); // useNavigate hook for redirection
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const navigate = useNavigate();
 
-  // Check authentication status when the component mounts
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        // End point for user Auth
-        const response = await axios.get('http://localhost:5000/check-session', { withCredentials: true });
+        // Use fetch to make the API request
+        const response = await fetch('http://localhost:5000/check-session', {
+          method: 'GET',
+          credentials: 'include' // Ensures cookies are sent with the request
+        });
 
-        if (response.status === 200) {
-          setIsAuthenticated(true); 
+        if (response.ok) { // Equivalent to checking for status 200
+          setIsAuthenticated(true);
         } else {
           setIsAuthenticated(false);
-          navigate('/login'); // take user to login if not auth
+          navigate('/login');
         }
       } catch (error) {
         setIsAuthenticated(false);
-        navigate('/login'); // Redirect to login on error 
+        navigate('/login');
       }
     };
 
-    checkAuth(); // Perform session check
-  }, [navigate]); // Dependency on navigate to re-run effect if needed
+    checkAuth();
+  }, []);
 
   if (!isAuthenticated) {
-    return <div>Loading...</div>; // Optional loading state while checking authentication
+    return<div class="loading-container">
+    <div class="loading-text">
+      Authenticating<span class="dots">
+        <span class="dot">.</span>
+        <span class="dot">.</span>
+        <span class="dot">. </span>
+      </span>
+            <p className='wait-text'>Please wait</p> 
+    </div>
+  </div>
+  
   }
 
   return (
     <>
-      <AdminPanel /> {/* Render AdminPanel if the user is authenticated */}
+      <AdminPanel />
     </>
   );
 };

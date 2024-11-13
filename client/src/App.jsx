@@ -12,6 +12,7 @@ import AdminPage from './pages/AdminPage'
 import PageNotFound from './pages/PageNotFound';
 import NavBar from './components/nav';
 import AboutPage from './pages/about';
+import Login  from './components/Login';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path='/blog' element={<Blog />}/>
         <Route path='/contact' element={<Contact />} />
         <Route path='/admin' element={<AdminPage />} />
+        <Route path='/login' element={<Login />} />
         <Route path='*' element={<PageNotFound />} />
       </Routes>
     </>
