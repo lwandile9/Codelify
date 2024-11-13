@@ -4,7 +4,7 @@
     position: relative;
     width: 420px;
     height: 150px;
-    background-color:  #c91a34;
+    background-color:  var(--secondary-color);
     border-radius: 15px; 
     display: flex;
     align-items: center;
@@ -106,7 +106,7 @@ form button{
 }
 
 .btnRegister{
-    background-color: #c91a34;
+    background-color:var(--secondary-color);
 }
 
 form .register-link{

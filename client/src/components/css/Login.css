@@ -94,7 +94,7 @@ form .remember-forgot {
 
 .remember-forgot a {
     text-decoration: none;
-    color: #007bff;
+    color:var(--secondary-color)
 }
 
 .remember-forgot a:hover {
@@ -109,7 +109,7 @@ form button {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     cursor: pointer;
     font-size: 16px;
-    background-color: #007bff;
+    background-color:var(--secondary-color);
     color: #fff;
 }
 
@@ -119,9 +119,6 @@ form .register-link {
     margin: 20px 0 15px;
 }
 
-.btn{
-    background-color: #c91a34;
-}
 
 .register-link p a {
     font-weight: 600;
