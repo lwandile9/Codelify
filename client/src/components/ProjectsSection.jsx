@@ -2,6 +2,8 @@
 import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import './css/ProjectsSection.css';
+import "../components/css/card.css";
+import Card from '../pages/card.jsx';
 
 function ProjectsSection() {
   const projectsRef = useRef([]);
@@ -15,9 +17,25 @@ function ProjectsSection() {
   }, []);
 
   const projects = [
-    { name: 'Code Heads hub', description: 'Lorem5 lorem' },
-    { name: 'NJabulo softwares', description: 'Description  lorem' },
-    { name: 'Code code code', description: 'Description of Project C' },
+    { 
+      name: 'Code Heads Hub', 
+      description: 'Learning Hub',  
+      image: '/images/codeheads.png', 
+      link: 'https://codeheadshublms.netlify.app/' 
+     
+    },
+    { 
+      name: 'Back-End Rest API', 
+      description: 'Basic Crud',  
+      image: '/images/toto.png', 
+      link: 'https://github.com/lwandile9/crud-rest-api-app' 
+    },
+    { 
+      name: 'The Rise of AI', 
+      description: 'Python Data Analysis',  
+      image: '/images/python.png', 
+      link: 'https://github.com/Gcina-jpy/The-rise-of-AI.git' 
+    },
   ];
 
   return (
@@ -26,8 +44,12 @@ function ProjectsSection() {
       <div className="project-grid">
         {projects.map((project, index) => (
           <div className="project-card" ref={(el) => projectsRef.current[index] = el} key={index}>
-            <h3>{project.name}</h3>
-            <p>{project.description}</p>
+            <a href={project.link} target="_blank" rel="noopener noreferrer">
+              <div className='project-card-image'><img src={project.image} alt={project.name} className="project-image" /></div>
+           
+              <h3>{project.name}</h3>
+              <p>{project.description}</p>
+            </a>
           </div>
         ))}
       </div>

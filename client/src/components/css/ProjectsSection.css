@@ -24,3 +24,21 @@
 .project-card:hover {
   transform: translateY(-10px);
 }
+
+
+.project-card-image {
+  width: 100%; /* Make it responsive to the card width */
+  height: auto; /* Ensures it scales based on width */
+  max-width: 150px; /* Set a maximum width for images */
+  overflow: hidden; /* Hide any overflow */
+  text-align: center;
+  align-items: center;
+  margin: auto;
+}
+
+.project-card-image img {
+  width: 100%;
+  height: auto;
+  object-fit: contain; /* Keep aspect ratio within bounds */
+  display: block; /* Removes any extra space below the image */
+}

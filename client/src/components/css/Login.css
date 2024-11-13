@@ -1,20 +1,27 @@
-
-.wrapper {
-    height: 100%;
+.FormBody{
+ 
     display: flex;
-    align-items: center;
     justify-content: center;
-    margin: 0;
-    background-color: #f0f2f5; /* Optional background for better contrast */
-    position: relative;
-    width: 100%;
-    max-width: 420px; /* Restricts max width on larger screens */
+    align-items: center;
+    min-height: 100vh;
     background-color: #ffffff;
-    border-radius: 15px;
+   }
+
+   *{
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+   }
+   
+.wrapper{
+    position: relative;
+    width: 420px;
+    
+    background-color:  #ffffff;
+    border-radius: 15px; 
     display: flex;
     align-items: center;
-    justify-content: center; /* Center content inside */
-    transition: height 0.2s ease;
+    transition:  height 0.2s ease;
     overflow: hidden;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Adds a soft shadow for depth */
 }
@@ -34,9 +41,8 @@
 
 .wrapper .form-box.register {
     position: absolute;
-    right: -100%; /* Positioned out of view initially */
-    transition: transform 0.18s ease;
-    transform: translateX(100%); /* Move into view with 'active' state */
+    translate: translateX(400px);
+    transition: none;
 }
 
 .wrapper.active .form-box.register {
@@ -111,6 +117,10 @@ form .register-link {
     font-size: 14.5px;
     text-align: center;
     margin: 20px 0 15px;
+}
+
+.btn{
+    background-color: #c91a34;
 }
 
 .register-link p a {
