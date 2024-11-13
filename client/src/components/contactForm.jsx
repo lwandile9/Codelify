@@ -13,10 +13,10 @@ const ContactForm = () => {
       {/* Contact Form Section */}
       <div className="form-container">
         <h3>Contact Us</h3>
-        <form>
-          <input type="text" placeholder="Your Name" required />
-          <input type="email" placeholder="Your Email" required />
-          <textarea placeholder="Describe your query" required></textarea>
+        <form action= "https://formspree.io/f/xldedaaq" method="POST">
+          <input type="text"  name="name" placeholder="Your Name" required />
+          <input type="email"  name="email"placeholder="Your Email" required />
+          <textarea placeholder="Describe your query"  name="Describe" required></textarea>
           <button type="submit">Submit</button>
         </form>
       </div>
