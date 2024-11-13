@@ -6,10 +6,6 @@ const AdminPage = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const navigate = useNavigate();
 
-<<<<<<< HEAD
-const AdminPage  = ()=>{
-const LoginRegister = () =>{}
-=======
   useEffect(() => {
     const checkAuth = async () => {
       try {
@@ -30,19 +26,10 @@ const LoginRegister = () =>{}
         navigate('/login');
       }
     };
->>>>>>> 6e183d976d5336d1cd89692634445632da81bf92
 
     checkAuth();
   }, []);
 
-<<<<<<< HEAD
-       <AdminPanel/>
-    
-      </>
-}
-//export default LoginRegister;
-export default AdminPanel;
-=======
   if (!isAuthenticated) {
     return<div class="loading-container">
     <div class="loading-text">
@@ -65,4 +52,3 @@ export default AdminPanel;
 };
 
 export default AdminPage;
->>>>>>> 6e183d976d5336d1cd89692634445632da81bf92
