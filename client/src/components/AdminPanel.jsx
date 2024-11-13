@@ -27,6 +27,7 @@ const AdminPanel = () => {
 </div>
         <p>Manage your blog posts and view statistics here.</p>
       </div>
+      <p></p>
     </div>
   );
 };
