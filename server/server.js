@@ -4,6 +4,9 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const session = require("express-session");
 const firebaseAdmin = require("firebase-admin");
+const cookieParser = require('cookie-parser');  // Make sure this is here
+const blogRoutes = require("./blogPosts");  // Correct file name
+
 
 // Firebase Admin SDK initialization
 const serviceAccount = require("./codlify-secret-key.json");
@@ -47,7 +50,7 @@ app.use(
 
 // Import routes
 const authRoutes = require("./auth");
-const blogRoutes = require("./blog");
+
 
 // Use routes
 app.use("/auth", authRoutes);
