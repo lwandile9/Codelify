@@ -108,5 +108,25 @@ module.exports = function (db) {
 			});
 	});
 
+	// Route to get a single blog post by ID
+	router.get("/blogPosts/:id", (req, res) => {
+		const postId = req.params.id;
+		db.collection("blogPosts")
+			.doc(postId)
+			.get()
+			.then((doc) => {
+				if (!doc.exists) {
+					return res.status(404).json({ error: "Post not found" });
+				}
+				res.json({ id: doc.id, ...doc.data() }); // Return the document data with ID
+			})
+			.catch((error) => {
+				console.error("Error fetching post by ID: ", error);
+				res.status(500).json({
+					error: "Error fetching post",
+					message: error.message,
+				});
+			});
+	});
 	return router; // Return the router to be used in the server
 };

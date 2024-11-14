@@ -59,7 +59,7 @@ const AdminPanel = () => {
 
   const handleEdit = (blogId) => {
     // Redirect to edit page with blog ID
-    navigate(`/edit-blog/${blogId}`);
+    navigate(`/post/${blogId}`);
   };
 
   return (

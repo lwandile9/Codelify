@@ -28,6 +28,7 @@ function App() {
         <Route path='/admin' element={<AdminPage />} />
         <Route path='/login' element={<Login />} />
         <Route path='/post' element={<Post />} />
+         <Route path="/post/:id" element={<Post />} /> {/* Route for editing an existing post */}
         <Route path='*' element={<PageNotFound />} />
       </Routes>
     </>
