@@ -58,7 +58,7 @@ function LoginRegister() {
   const handleLogin = async (e) => {
     e.preventDefault();
     setLoginError(''); // Clear previous errors
-    setIsLoading(true); // Show loading spinner when login request starts
+    setIsLoading(true);
   
     try {
       // Send login request to the server

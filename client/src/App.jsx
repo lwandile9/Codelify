@@ -13,6 +13,7 @@ import PageNotFound from './pages/PageNotFound';
 import NavBar from './components/nav';
 import AboutPage from './pages/about';
 import Login  from './components/Login';
+import Post from './components/post';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
         <Route path='/contact' element={<Contact />} />
         <Route path='/admin' element={<AdminPage />} />
         <Route path='/login' element={<Login />} />
+        <Route path='/post' element={<Post />} />
         <Route path='*' element={<PageNotFound />} />
       </Routes>
     </>
