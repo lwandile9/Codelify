@@ -2,6 +2,7 @@
 .hero-section {
   padding: 40px 20px;
   display: flex;
+  
   flex-direction: column;
   align-items: center;
   background: linear-gradient(135deg, #1e2a38, #2d3748);
