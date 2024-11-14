@@ -10,7 +10,7 @@ const BlogPost = () => {
     // Fetch blogs from API
     useEffect(() => {
         const fetchBlogs = async () => {
-            try {
+            try {  
                 const response = await fetch('http://localhost:3000/blog/blogPosts');
                 const data = await response.json();
                 setBlogs(data);
