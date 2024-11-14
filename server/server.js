@@ -1,10 +1,9 @@
-// server.js
+// Import required modules
 const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const session = require("express-session");
 const firebaseAdmin = require("firebase-admin");
-const path = require("path");
 
 // Firebase Admin SDK initialization
 const serviceAccount = require("./codlify-secret-key.json");
@@ -18,25 +17,41 @@ const db = firebaseAdmin.firestore();
 
 // Initialize Express app
 const app = express();
-const PORT = 3000;
+const PORT = 3000; // Manually setting the port
 
-// Middleware setup
-app.use(cors());
-app.use(bodyParser.json());
+// CORS configuration with credentials
+const corsOptions = {
+  origin: 'http://localhost:5173', // Allow requests from your frontend
+  methods: 'GET,POST,PUT,DELETE',
+  allowedHeaders: 'Content-Type,Authorization',
+  credentials: true, // Allow sending cookies or headers like Authorization
+};
+
+app.use(cors(corsOptions)); // Apply CORS configuration
+app.use(cookieParser()); // Enable parsing cookies in requests
+app.use(express.json()); // Add JSON body parsing if needed
+app.use(express.urlencoded({ extended: true })); // Handle URL-encoded data
+
+// Session middleware setup (No environment variables)
 app.use(
   session({
-    secret: "secretKey",
+    secret: "your-secret-key",  // Set your session secret directly here
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: false }, // Use true for HTTPS
+    cookie: {
+      secure: false, // Explicitly set to false for HTTP (no need for HTTPS)
+      httpOnly: true, // Ensures the cookie is not accessible via JavaScript
+    },
   })
 );
 
-// Blog route
-// Import the blogPosts route
-const blogRoutes = require("./blogPosts");  // Correct path if blogPosts.js is directly under the 'server' folder
+// Import routes
+const authRoutes = require("./auth");
+const blogRoutes = require("./blog");
 
-app.use("/blog", blogRoutes(db)); // Use the route with Firestore integration
+// Use routes
+app.use("/auth", authRoutes);
+app.use("/blog", blogRoutes(db)); // Pass the Firestore database to routes
 
 // Start the server
 app.listen(PORT, () => {
