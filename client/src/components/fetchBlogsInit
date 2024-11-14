@@ -1,0 +1,72 @@
+import React, { useEffect, useState } from 'react';
+import './css/blogList.css';
+
+const BlogList = () => {
+    const [blogs, setBlogs] = useState([]);
+    const [searchTerm, setSearchTerm] = useState('');
+    const [expandedBlogId, setExpandedBlogId] = useState(null);
+
+    // Fetch blogs from API
+    useEffect(() => {
+        const fetchBlogs = async () => {
+            try {
+                const response = await fetch('http://localhost:3000/blog/blogPosts');
+                const data = await response.json();
+                setBlogs(data);
+            } catch (error) {
+                console.error('Error fetching blogs:', error);
+            }
+        };
+        fetchBlogs();
+    }, []);
+
+    // Filtered blogs based on search term
+    const filteredBlogs = blogs.filter(blog =>
+        blog.title.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+
+    // Toggle expanded view
+    const toggleReadMore = (id) => {
+        setExpandedBlogId(expandedBlogId === id ? null : id);
+    };
+
+    return (
+        <div className="fetched-blog-list-container">
+            <h2 className="fetched-blog-heading">Our Blog Posts</h2>
+
+            <input
+                type="text"
+                placeholder="Search blogs by title..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="fetched-search-input"
+            />
+
+            <div className="fetched-blog-card-container">
+                {filteredBlogs.map(blog => (
+                    <div key={blog.id} className="fetched-blog-card">
+                        <h3 className="fetched-blog-title">{blog.title}</h3>
+                        <p className="fetched-blog-author">By: {blog.author}</p>
+                        <p className="fetched-blog-intro">{blog.intro}</p>
+
+                        {expandedBlogId === blog.id ? (
+                            <>
+                                <p className="fetched-blog-content">{blog.content}</p>
+                                <p className="fetched-blog-conclusion">{blog.conclusion}</p>
+                                <button onClick={() => toggleReadMore(blog.id)} className="fetched-read-more-btn">
+                                    Show Less
+                                </button>
+                            </>
+                        ) : (
+                            <button onClick={() => toggleReadMore(blog.id)} className="fetched-read-more-btn">
+                                Read More
+                            </button>
+                        )}
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
+};
+
+export default BlogList;
