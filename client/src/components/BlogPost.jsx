@@ -1,46 +1,46 @@
-import React, { useEffect, useState } from "react";
-import "./css/BlogPost.css";  // CSS file for styling
+// BlogPost.jsx
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { db } from './firebase';  // Import Firestore instance
 
-const BlogPost = () => {
-  const [posts, setPosts] = useState([]);
-  const [loading, setLoading] = useState(true); // New loading state
+function BlogPost() {
+  const { id } = useParams();  // Get the blog post ID from the URL
+  const [blog, setBlog] = useState(null);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:3000/blog")
-      .then((response) => response.json())
-      .then((data) => {
-        setPosts(data);
-        setLoading(false); // Data loaded, stop loading
-      })
-      .catch((error) => {
-        console.error("Error loading JSON data:", error);
-        setLoading(false); // Stop loading even on error
-      });
-  }, []);
+    const fetchBlogPost = async () => {
+      try {
+        // Fetch blog post from Firestore using the ID
+        const doc = await db.collection('posts').doc(id).get();
+
+        if (!doc.exists) {
+          throw new Error('Blog post not found');
+        }
+
+        setBlog({ id: doc.id, ...doc.data() });  // Save blog data in state
+      } catch (error) {
+        setError(error.message);  // Set error message if fetching fails
+        console.error('Error loading blog post:', error);
+      }
+    };
+
+    fetchBlogPost();
+  }, [id]);  // Run the effect when the ID changes
 
   return (
-    <div className="blog-container">
-      {loading ? (
-        <div className="loader"></div> // Loading message
+    <section className="blog-post">
+      {error && <p>{error}</p>}  {/* Display error message if fetching fails */}
+      {blog ? (
+        <>
+          <h1>{blog.title}</h1>  {/* Display blog title */}
+          <p>{blog.content}</p>  {/* Display blog content */}
+        </>
       ) : (
-        posts.map((post) => (
-          <div className="blog-post" key={post.id}>
-            <img src={post.image} alt={post.title} className="blog-image" />
-            <div className="blog-content">
-              <h2 className="blog-title">{post.title}</h2>
-              <p className="blog-meta">
-                By {post.author} on {new Date(post.date).toLocaleDateString()}
-              </p>
-              <p className="blog-excerpt">
-                {post.content.substring(0, 100)}... {/* Show first 100 characters */}
-              </p>
-              <button className="read-more">Read More</button>
-            </div>
-          </div>
-        ))
+        <p>Loading...</p>  
       )}
-    </div>
+    </section>
   );
-};
+}
 
 export default BlogPost;

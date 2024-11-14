@@ -1,18 +1,15 @@
-// server.js
-
+// Import required modules
 const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const session = require("express-session");
 const firebaseAdmin = require("firebase-admin");
-const cookieParser = require("cookie-parser");
 
 // Firebase Admin SDK initialization
 const serviceAccount = require("./codlify-secret-key.json");
 
 firebaseAdmin.initializeApp({
   credential: firebaseAdmin.credential.cert(serviceAccount),
-  // No need for databaseURL for Firestore
 });
 
 // Firebase Firestore reference
@@ -53,7 +50,7 @@ const authRoutes = require("./auth");
 const blogRoutes = require("./blog");
 
 // Use routes
-app.use("/auth", authRoutes); // Handle /auth routes here
+app.use("/auth", authRoutes);
 app.use("/blog", blogRoutes(db)); // Pass the Firestore database to routes
 
 // Start the server
