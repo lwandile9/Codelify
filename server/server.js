@@ -24,7 +24,7 @@ const PORT = 3000; // Manually setting the port
  
 // CORS configuration with credentials
 const corsOptions = {
-  origin: 'http://localhost:5173', // Allow requests from your frontend
+ origin: ['http://localhost:5173', 'http://localhost:5174'], // Allow requests from your frontend
   methods: 'GET,POST,PUT,DELETE',
   allowedHeaders: 'Content-Type,Authorization',
   credentials: true, // Allow sending cookies or headers like Authorization
