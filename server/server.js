@@ -20,7 +20,7 @@ const db = firebaseAdmin.firestore();
  
 // Initialize Express app
 const app = express();
-const PORT = 4000; // Manually setting the port
+const PORT = 3000; // Manually setting the port
  
 // CORS configuration with credentials
 const corsOptions = {
