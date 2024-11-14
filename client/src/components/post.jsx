@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
+import './css/post.css';
 
-import './css/post.css'
 const Post = () => {
-    // State for form data and validation
+    // State for form data, validation, and loading status
     const [formData, setFormData] = useState({
         title: '',
         intro: '',
@@ -11,6 +11,7 @@ const Post = () => {
         author: ''
     });
     const [error, setError] = useState('');
+    const [loading, setLoading] = useState(false); // New loading state
 
     // Handle form field changes
     const handleChange = (e) => {
@@ -30,9 +31,10 @@ const Post = () => {
         }
 
         setError(''); // Clear error if form is valid
+        setLoading(true); // Start loading animation
 
         try {
-            const response = await fetch('https://your-backend-endpoint.com/posts', {
+            const response = await fetch('http://localhost:3000/blog/blogPosts', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -49,6 +51,8 @@ const Post = () => {
         } catch (error) {
             console.error('Error:', error);
             setError('Failed to submit post.');
+        } finally {
+            setLoading(false); // Stop loading animation
         }
     };
 
@@ -58,6 +62,7 @@ const Post = () => {
                 <h2 className='create-post-heading'>Create Blog</h2>
 
                 {error && <p className="error-message">{error}</p>}
+                {loading && <div className="loading-animation">Submitting...</div>}
 
                 <label>Title:</label>
                 <input
@@ -107,12 +112,10 @@ const Post = () => {
                     required
                 />
 
-                <button type="submit">Post</button>
+                <button type="submit" disabled={loading}>Post</button>
             </form>
         </>
     );
 };
 
 export default Post;
-
-  

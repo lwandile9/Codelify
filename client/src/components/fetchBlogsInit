@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
-import "./css/fetchBlogInit.css";  // CSS file for styling
+import React, { useEffect, useState } from 'react';
+import './css/blogList.css';
 
-const BlogPost = () => {
-
+const BlogList = () => {
     const [blogs, setBlogs] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
     const [expandedBlogId, setExpandedBlogId] = useState(null);
@@ -32,34 +31,34 @@ const BlogPost = () => {
     };
 
     return (
-        <div className="blog-post-list-container">
-            <h2 className="blog-post-heading">Our Blog Posts</h2>
+        <div className="fetched-blog-list-container">
+            <h2 className="fetched-blog-heading">Our Blog Posts</h2>
 
             <input
                 type="text"
                 placeholder="Search blogs by title..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="blog-post-search-input"
+                className="fetched-search-input"
             />
 
-            <div className="blog-post-card-container">
+            <div className="fetched-blog-card-container">
                 {filteredBlogs.map(blog => (
-                    <div key={blog.id} className="blog-post-card">
-                        <h3 className="blog-post-title">{blog.title}</h3>
-                        <p className="blog-post-author">By: {blog.author}</p>
-                        <p className="blog-post-intro">{blog.intro}</p>
+                    <div key={blog.id} className="fetched-blog-card">
+                        <h3 className="fetched-blog-title">{blog.title}</h3>
+                        <p className="fetched-blog-author">By: {blog.author}</p>
+                        <p className="fetched-blog-intro">{blog.intro}</p>
 
                         {expandedBlogId === blog.id ? (
                             <>
-                                <p className="blog-post-content">{blog.content}</p>
-                                <p className="blog-post-conclusion">{blog.conclusion}</p>
-                                <button onClick={() => toggleReadMore(blog.id)} className="blog-post-read-more-btn">
+                                <p className="fetched-blog-content">{blog.content}</p>
+                                <p className="fetched-blog-conclusion">{blog.conclusion}</p>
+                                <button onClick={() => toggleReadMore(blog.id)} className="fetched-read-more-btn">
                                     Show Less
                                 </button>
                             </>
                         ) : (
-                            <button onClick={() => toggleReadMore(blog.id)} className="blog-post-read-more-btn">
+                            <button onClick={() => toggleReadMore(blog.id)} className="fetched-read-more-btn">
                                 Read More
                             </button>
                         )}
@@ -70,4 +69,4 @@ const BlogPost = () => {
     );
 };
 
-export default BlogPost;
+export default BlogList;

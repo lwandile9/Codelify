@@ -1,0 +1,114 @@
+:root {
+  --primary-color: #061322;  /* Primary color */
+  --text-color: #ffffff;        /* Text color */
+  --bg-color: #f9f9f9;       /* Background color for the blog section */
+  --card-bg-color: #1a1a2e;  /* Background color for blog cards */
+  --button-hover-color: #155a8a; /* Button hover color */
+}
+
+.blog-post-list-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: var(--bg-color); /* Ensure the container has background */
+}
+
+.blog-post-heading {
+  text-align: center;
+  color: var(--secondary-color);
+  margin-bottom: 30px;
+  font-size: 2.2em;
+  font-weight: bold;
+}
+
+.blog-post-search-input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 30px;
+  font-size: 1.1em;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+
+.blog-post-card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responsive grid columns */
+  gap: 30px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.blog-post-card {
+  padding: 20px;
+  border-top: 3px solid var(--secondary-color);
+  background-color: var(--card-bg-color);
+  color: #fff;
+  border-radius: 8px;
+  width: 100%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.blog-post-card:hover {
+  transform: scale(1.03);  /* Slight scale-up for interactivity */
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+}
+
+.blog-post-title {
+  font-size: 1.8em;
+  font-weight: bold;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+  transition: color 0.3s ease;
+}
+
+.blog-post-title:hover {
+  color: var(--secondary-color); /* Change title color on hover */
+}
+
+.blog-post-author {
+  font-size: 1em;
+  color: var(--text-color);
+  font-weight: normal;
+  margin-bottom: 5px;
+}
+
+.blog-post-intro {
+  font-size: 1.1em;
+  color: var(--text-color);
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.blog-post-content,
+.blog-post-conclusion {
+  font-size: 1.1em;
+  color: var(--text-color);
+  line-height: 1.6;
+  margin-top: 15px;
+}
+
+.blog-post-read-more-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 18px;
+  background-color: var(--primary-color);
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.blog-post-read-more-btn:hover {
+  background-color: var(--button-hover-color); /* Darker shade on hover */
+  transform: scale(1.05); /* Slight scale-up for the button */
+}
