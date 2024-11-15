@@ -13,8 +13,8 @@ const AdminPanel = () => {
   const toggleSidebar = () => setSidebarOpen(!sidebarOpen);
 
   const logout = () => {
-    // Perform any logout tasks (e.g., clearing tokens, user data)
-    navigate('/home'); // Redirect to home page
+    localStorage.removeItem('token');
+    navigate('/'); 
   };
 
   // Fetch blog data from API when the component mounts
@@ -81,8 +81,8 @@ const AdminPanel = () => {
         </div>
         
         <h2>Blog Posts</h2>
-        <div className="posted-blogs">
-        <div className="blog-card">
+       
+        <div className="admin-blog-card">
           {filteredBlogs.map((blog) => (
             <div key={blog.id} className="blog-item">
               <h3>{blog.title}</h3>
@@ -94,10 +94,9 @@ const AdminPanel = () => {
               </div>
             </div>
 
-
           ))}
         </div>
-        </div>
+     
       </div>
     </div>
   );

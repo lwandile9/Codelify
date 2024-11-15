@@ -120,7 +120,7 @@ function LoginRegister() {
                 <div className="input-box">
                   <input
                     type="email"
-                    placeholder="Email"
+                    placeholder="Admin ID"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
