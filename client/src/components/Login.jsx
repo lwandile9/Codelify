@@ -228,8 +228,13 @@ function LoginRegister() {
           <div className="modal-content">
             <h2>Forgot Password</h2>
             <p>Enter your email address, and we'll send you a link to reset your password.</p>
-            <input type="email" placeholder="Email" />
-            <button onClick={closeModal}>Close</button>
+            <form   action= "https://formspree.io/f/xldedaaq" method="POST">
+
+                <input name="email"  placeholder="Email" />
+                <button onClick={closeModal}>Close</button>
+                <button type='submit' >Send</button>
+            </form>
+           
           </div>
         </div>
       )}
