@@ -19,10 +19,26 @@ function LoginRegister() {
 
   const validateRegistrationForm = () => {
     let formErrors = {};
+
+    // Name validation
     if (!name) formErrors.name = 'Name is required';
+
+    // Email validation
     if (!email) formErrors.email = 'Email is required';
+
+    // Password validation
     if (!password) formErrors.password = 'Password is required';
-    if (password !== confirmPassword) formErrors.confirmPassword = 'Passwords do not match';
+    else {
+      const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{5,}$/;
+      if (!passwordRegex.test(password)) {
+        formErrors.password = 'Password must be at least 5 characters, contain a number and a special character';
+      }
+    }
+
+    // Confirm password validation
+    if (!confirmPassword) formErrors.confirmPassword = 'Please confirm your password';
+    else if (password !== confirmPassword) formErrors.confirmPassword = 'Passwords do not match';
+
     return formErrors;
   };
 
@@ -89,7 +105,6 @@ function LoginRegister() {
     }
   };
 
-  
   const toggleForm = () => {
     setShowRegister((prev) => !prev);
     setErrors({});
