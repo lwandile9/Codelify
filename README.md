@@ -1,4 +1,4 @@
-# Codlify Company Portfolio & Blog Website
+# Codelify Company Portfolio & Blog Website
 
 Welcome to the Codelify Company Portfolio & Blog Website repository! This project showcases Code Heads's work and provides a blog for insights and tutorials, establishing a professional online presence.
 
