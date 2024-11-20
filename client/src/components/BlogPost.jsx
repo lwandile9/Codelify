@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
-import './css/fetchBlogInit.css';
+import '/src/components/css/fetchBlogInit.css';
+
+
 
 
 
