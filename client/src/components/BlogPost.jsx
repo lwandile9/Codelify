@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import "/css/fetchBlogInit.css";  // CSS file for styling
+import '../css/fetchBlogInit.css'; // relative path from components to css
+
 
 const BlogPost = () => {
   const [blogs, setBlogs] = useState([]);
