@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import './css/fetchBLogInit.css';
 
 
-
 const BlogPost = () => {
   const [blogs, setBlogs] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
