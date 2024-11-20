@@ -4,6 +4,7 @@ import './css/fetchBlogInit.css';
 
 
 
+
 const BlogPost = () => {
   const [blogs, setBlogs] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
