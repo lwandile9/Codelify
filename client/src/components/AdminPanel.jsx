@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import './css/AdminPanel.css';
-import "./css/fetchBlogInit.css";  // CSS file for styling
+import './css/adminPanel.css';
+import "./css/fetchBLogInit.css";  // CSS file for styling
 import "./css/postblogstyle.css";
 
 const AdminPanel = () => {
