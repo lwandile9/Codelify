@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import '../css/fetchBlogInit.css'; // relative path from components to css
+import './css/fetchBlogInit.css';
+
 
 
 const BlogPost = () => {
